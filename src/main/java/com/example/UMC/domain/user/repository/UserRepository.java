@@ -1,0 +1,2 @@
+package com.example.UMC.domain.user.repository;public interface UserRepository {
+}
