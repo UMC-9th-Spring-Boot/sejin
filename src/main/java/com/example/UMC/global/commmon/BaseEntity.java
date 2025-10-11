@@ -1,4 +1,4 @@
-package com.example.UMC.domain;
+package com.example.UMC.global.commmon;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

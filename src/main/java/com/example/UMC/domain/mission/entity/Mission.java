@@ -1,7 +1,7 @@
-package com.example.UMC.domain.mission;
+package com.example.UMC.domain.mission.entity;
 
-import com.example.UMC.domain.store.Store;
-import com.example.UMC.domain.store.Region;
+import com.example.UMC.domain.store.entity.Store;
+import com.example.UMC.domain.store.entity.Region;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
