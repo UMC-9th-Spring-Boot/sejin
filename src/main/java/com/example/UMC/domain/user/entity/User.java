@@ -1,12 +1,13 @@
-package com.example.UMC.domain.user;
+package com.example.UMC.domain.user.entity;
 
-import com.example.UMC.domain.BaseEntity;
-import com.example.UMC.domain.mission.UserMission;
-import com.example.UMC.domain.notification.Notification;
-import com.example.UMC.domain.review.Review;
-import com.example.UMC.domain.review.ReviewReply;
-import com.example.UMC.domain.enums.*;
-import com.example.UMC.domain.likes.UserLikeFood;
+import com.example.UMC.domain.enums.entity.Gender;
+import com.example.UMC.domain.enums.entity.Status;
+import com.example.UMC.global.commmon.BaseEntity;
+import com.example.UMC.domain.mission.entity.UserMission;
+import com.example.UMC.domain.notification.entity.Notification;
+import com.example.UMC.domain.review.entity.Review;
+import com.example.UMC.domain.review.entity.ReviewReply;
+import com.example.UMC.domain.likes.entity.UserLikeFood;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;

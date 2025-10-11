@@ -1,8 +1,8 @@
-package com.example.UMC.domain.mission;
+package com.example.UMC.domain.mission.entity;
 
-import com.example.UMC.domain.enums.MissionStatus;
-import com.example.UMC.domain.store.Region;
-import com.example.UMC.domain.user.User;
+import com.example.UMC.domain.enums.entity.MissionStatus;
+import com.example.UMC.domain.store.entity.Region;
+import com.example.UMC.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;

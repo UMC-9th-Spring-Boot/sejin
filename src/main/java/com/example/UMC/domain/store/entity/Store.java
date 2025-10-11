@@ -1,9 +1,8 @@
-package com.example.UMC.domain.store;
+package com.example.UMC.domain.store.entity;
 
-import com.example.UMC.domain.BaseEntity;
+import com.example.UMC.global.commmon.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.List;
 
 @Entity
 @Getter

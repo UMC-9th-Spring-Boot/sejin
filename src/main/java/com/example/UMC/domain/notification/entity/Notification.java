@@ -1,8 +1,8 @@
-package com.example.UMC.domain.notification;
+package com.example.UMC.domain.notification.entity;
 
 
-import com.example.UMC.domain.BaseEntity;
-import com.example.UMC.domain.user.User;
+import com.example.UMC.global.commmon.BaseEntity;
+import com.example.UMC.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 

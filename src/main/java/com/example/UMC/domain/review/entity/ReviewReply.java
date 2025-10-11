@@ -1,7 +1,7 @@
-package com.example.UMC.domain.review;
+package com.example.UMC.domain.review.entity;
 
-import com.example.UMC.domain.store.Region;
-import com.example.UMC.domain.user.User;
+import com.example.UMC.domain.store.entity.Region;
+import com.example.UMC.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 

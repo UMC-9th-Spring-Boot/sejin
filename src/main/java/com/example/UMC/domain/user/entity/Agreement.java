@@ -1,6 +1,6 @@
-package com.example.UMC.domain.user;
+package com.example.UMC.domain.user.entity;
 
-import com.example.UMC.domain.BaseEntity;
+import com.example.UMC.global.commmon.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

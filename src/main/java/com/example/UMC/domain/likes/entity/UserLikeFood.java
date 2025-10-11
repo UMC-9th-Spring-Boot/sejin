@@ -1,6 +1,6 @@
-package com.example.UMC.domain.likes;
+package com.example.UMC.domain.likes.entity;
 
-import com.example.UMC.domain.user.User;
+import com.example.UMC.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 

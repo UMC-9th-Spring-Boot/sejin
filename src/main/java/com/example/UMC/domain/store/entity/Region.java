@@ -1,4 +1,4 @@
-package com.example.UMC.domain.store;
+package com.example.UMC.domain.store.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
