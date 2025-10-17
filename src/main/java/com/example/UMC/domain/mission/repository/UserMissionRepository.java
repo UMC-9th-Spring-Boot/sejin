@@ -22,7 +22,7 @@ public interface UserMissionRepository extends JpaRepository<UserMission, Long> 
         JOIN FETCH um.mission m
         JOIN FETCH m.store s
         WHERE um.user = :user
-        ORDER BY um.completeAt DESC
+        ORDER BY um.completedAt DESC
     """)
     Page<UserMission> findAllByUser(@Param("user") User user, Pageable pageable);
 }
