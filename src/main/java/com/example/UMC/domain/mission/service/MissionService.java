@@ -1,7 +1,10 @@
 package com.example.UMC.domain.mission.service;
 
 import com.example.UMC.domain.enums.entity.MissionStatus;
+import com.example.UMC.domain.mission.converter.MissionConverter;
 import com.example.UMC.domain.mission.dto.response.MissionChallengeResponse;
+import com.example.UMC.domain.mission.dto.response.StoreMissionResponse;
+import com.example.UMC.domain.mission.dto.response.UserMissionInProgressResponse;
 import com.example.UMC.domain.mission.entity.Mission;
 import com.example.UMC.domain.mission.entity.UserMission;
 import com.example.UMC.domain.mission.exception.MissionException;
@@ -13,10 +16,13 @@ import com.example.UMC.domain.user.exception.UserException;
 import com.example.UMC.domain.user.exception.code.UserErrorCode;
 import com.example.UMC.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +30,7 @@ public class MissionService {
     private final MissionRepository missionRepository;
     private final UserRepository userRepository;
     private final UserMissionRepository userMissionRepository;
+    private final MissionConverter converter;
 
     /**
      * 미션 도전하기 API
@@ -71,5 +78,17 @@ public class MissionService {
                 .userId(user.getId())
                 .status(saved.getStatus())
                 .build();
+    }
+
+    public List<StoreMissionResponse> getStoreMissions(Long storeId, int pageIndex) {
+        Pageable pageable = PageRequest.of(pageIndex, 10);
+        return converter.toStoreMissionList(missionRepository.findByStoreId(storeId, pageable));
+    }
+
+    public List<UserMissionInProgressResponse> getUserInProgress(Long userId, int pageIndex) {
+        Pageable pageable = PageRequest.of(pageIndex, 10);
+        return converter.toUserMissionList(
+                userMissionRepository.findByUserIdAndStatus(userId, MissionStatus.PROCESS, pageable)
+        );
     }
 }

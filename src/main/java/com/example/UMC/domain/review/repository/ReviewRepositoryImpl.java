@@ -19,7 +19,7 @@ import java.util.List;
 @Repository
 @Primary //컨트롤러 테스트 용도로 잠시 붙힘
 @RequiredArgsConstructor
-public class ReviewQueryRepositoryImpl implements ReviewQueryRepository {
+public class ReviewRepositoryImpl implements ReviewQueryRepository {
 
     private final JPAQueryFactory queryFactory;
 
