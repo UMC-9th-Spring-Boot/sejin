@@ -23,4 +23,7 @@ public interface MissionRepository extends JpaRepository<Mission, Long> {
         ORDER BY m.endsAt ASC
     """)
     Page<Mission> findAllByRegion(@Param("region") Region region, Pageable pageable);
+
+    // 문제 2: 특정 가게의 미션 목록
+    Page<Mission> findByStoreId(Long storeId, Pageable pageable);
 }

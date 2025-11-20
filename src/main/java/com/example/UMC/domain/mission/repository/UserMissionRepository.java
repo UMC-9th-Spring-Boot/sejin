@@ -1,6 +1,7 @@
 package com.example.UMC.domain.mission.repository;
 
 
+import com.example.UMC.domain.enums.entity.MissionStatus;
 import com.example.UMC.domain.mission.entity.UserMission;
 import com.example.UMC.domain.user.entity.User;
 import org.springframework.data.domain.Page;
@@ -25,5 +26,8 @@ public interface UserMissionRepository extends JpaRepository<UserMission, Long> 
         ORDER BY um.completedAt DESC
     """)
     Page<UserMission> findAllByUser(@Param("user") User user, Pageable pageable);
+
+    // 문제 3: 내가 진행 중인 미션 목록
+    Page<UserMission> findByUserIdAndStatus(Long userId, MissionStatus status, Pageable pageable);
 }
 

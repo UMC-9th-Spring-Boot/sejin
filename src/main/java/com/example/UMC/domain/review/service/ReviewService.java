@@ -1,6 +1,8 @@
 package com.example.UMC.domain.review.service;
 
+import com.example.UMC.domain.review.converter.ReviewConverter;
 import com.example.UMC.domain.review.dto.request.ReviewCreateRequest;
+import com.example.UMC.domain.review.dto.response.MyReviewResponse;
 import com.example.UMC.domain.review.dto.response.ReviewResponse;
 import com.example.UMC.domain.review.entity.Review;
 import com.example.UMC.domain.review.repository.ReviewRepository;
@@ -14,7 +16,10 @@ import com.example.UMC.domain.user.exception.code.UserErrorCode;
 import com.example.UMC.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.*;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +27,7 @@ public class ReviewService {
     private final ReviewRepository reviewRepository;
     private final UserRepository userRepository;
     private final StoreRepository storeRepository;
+    private final ReviewConverter converter;
 
     @Transactional
     public ReviewResponse createReview(Long userId, Long storeId, ReviewCreateRequest request) {
@@ -53,5 +59,13 @@ public class ReviewService {
                 saved.getRating(),
                 saved.getContent()
         );
+    }
+
+    public List<MyReviewResponse> getMyReviews(Long userId, int pageIndex) {
+
+        Pageable pageable = PageRequest.of(pageIndex, 10, Sort.by("createdAt").descending());
+        Page<?> result = reviewRepository.findByUserId(userId, pageable);
+
+        return converter.toMyReviews((Page) result);
     }
 }
