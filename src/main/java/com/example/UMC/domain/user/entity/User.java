@@ -1,6 +1,7 @@
 package com.example.UMC.domain.user.entity;
 
 import com.example.UMC.domain.enums.entity.Gender;
+import com.example.UMC.domain.enums.entity.Role;
 import com.example.UMC.domain.enums.entity.Status;
 import com.example.UMC.global.commmon.BaseEntity;
 import com.example.UMC.domain.mission.entity.UserMission;
@@ -57,6 +58,9 @@ public class User extends BaseEntity {
     @Column(name = "password", nullable = false, length = 100)
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     @Column(name = "point", nullable = false)
     private Integer point;
 
@@ -85,4 +89,20 @@ public class User extends BaseEntity {
     // 유저 미션 (User_Mission) 1:N
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<UserMission> missions;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.status == null) {
+            this.status = Status.ACTIVE;   // 원하는 기본 상태
+        }
+        if (this.privacyAgree == null) {
+            this.privacyAgree = true;      // 기본 동의
+        }
+        if (this.point == null) {
+            this.point = 0;                // 기본 포인트 0
+        }
+        if (this.role == null) {
+            this.role = Role.ROLE_USER;    // 기본 권한
+        }
+    }
 }
