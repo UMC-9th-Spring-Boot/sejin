@@ -1,4 +1,4 @@
-package com.example.UMC.domain.user.dto;
+package com.example.UMC.domain.user.dto.request;
 
 import com.example.UMC.domain.enums.entity.Gender;
 import jakarta.validation.constraints.Email;
@@ -22,4 +22,13 @@ public class UserReqDTO {
             @NotNull
             String address
     ) {}
+
+
+    // 로그인
+    public record LoginDTO(
+            @NotBlank
+            String email,
+            @NotBlank
+            String password
+    ){}
 }

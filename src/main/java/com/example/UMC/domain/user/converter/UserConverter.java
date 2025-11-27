@@ -1,7 +1,7 @@
 package com.example.UMC.domain.user.converter;
 
 import com.example.UMC.domain.enums.entity.Role;
-import com.example.UMC.domain.user.dto.UserReqDTO;
+import com.example.UMC.domain.user.dto.request.UserReqDTO;
 import com.example.UMC.domain.user.entity.User;
 
 public class UserConverter {
